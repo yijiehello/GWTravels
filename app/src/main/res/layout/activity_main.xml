@@ -11,7 +11,14 @@
     tools:context="com.gwtravel.MainActivity">
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我是修改52154595641594496!" />
+        android:text="我是修改123456!" />
+    <TextView
+        android:layout_below="@id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="我是修改123456!" />
+
 </RelativeLayout>
