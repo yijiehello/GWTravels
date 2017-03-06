@@ -19,6 +19,6 @@
         android:layout_below="@id/tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="我是修改123456!" />
+        android:text="我是修改12345621321!" />
 
 </RelativeLayout>
