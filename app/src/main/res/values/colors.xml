@@ -3,4 +3,23 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="popuwindowbackground">#6c6c6c</color>
+    <color name="buttonbackground">#9c9c9c</color>
+    <color name="white">#ffffff</color>
+    <color name="lightblue">#569cd9</color>
+    <color name="grey">#c7c7c7</color>
+    <color name="selectblack">#333333</color>
+    <color name="noselectblack">#8d8d8d</color>
+    <color name="midblue">#0d90ea</color>
+    <color name="greyline">#dbdbdb</color>
+    <color name="midgreybackground">#e3e3e5</color>
+    <color name="lightgreybackground">#ebefee</color>
+    <color name="greenroundbg">#3ec24e</color>
+    <color name="orangeroundbg">#ff9c00</color>
+    <color name="yellowroundbg">#e8b82d</color>
+    <color name="bluegreyroundbg">#779eda</color>
+    <color name="drakbluebg">#1B82D1</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="greywhite">#aabaca</color>
 </resources>

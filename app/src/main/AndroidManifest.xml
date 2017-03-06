@@ -3,18 +3,26 @@
     package="com.gwtravel">
 
     <application
+        android:name=".view.app.ImageLoaderApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".view.activity.MainActivity">
         </activity>
+        <activity android:name=".view.activity.BaseActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar" />
+        <activity android:name=".view.activity.RegisterActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".view.activity.QueryCompanyActivity"/>
+        <activity android:name=".view.activity.SubmitPersonInfoActivity"/>
+
     </application>
 
 </manifest>

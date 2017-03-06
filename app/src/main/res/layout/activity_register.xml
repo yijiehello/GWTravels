@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+
+    <RelativeLayout
+        android:id="@+id/top_re"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_height="70dp">
+        <TextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="为你的出行提供优质的服务"/>
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/content_tv"
+            android:layout_above="@id/content_tv"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公务出行"
+            android:textSize="23sp"
+            android:layout_alignRight="@id/content_tv"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@id/content_tv"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/phone_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/top_re">
+        <EditText
+            android:maxLength="11"
+            android:padding="10dp"
+            android:background="@drawable/background_edit"
+            android:hint="请输入手机号"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:id="@+id/et_phone"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/code_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/phone_re">
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="85dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/background_yellow_text"
+            android:text="发送验证码"
+            android:textColor="@color/white"/>
+        <EditText
+            android:maxLength="11"
+            android:padding="10dp"
+            android:layout_toLeftOf="@id/send_btn"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/background_edit"
+            android:hint="请输入验证码"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:id="@+id/et_code"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/register_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/code_re"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_yellow_text"
+        android:layout_marginLeft="20dp"
+        android:text="注册"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/register_tv"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="已有账号密码，点击登录"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/background">
+    <RelativeLayout
+        android:id="@+id/top_re"
+        android:layout_width="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_height="70dp">
+        <TextView
+            android:id="@+id/content_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="为你的出行提供优质的服务"/>
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignLeft="@id/content_tv"
+            android:layout_above="@id/content_tv"
+            android:layout_marginBottom="10dp"
+            android:background="@mipmap/logo"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="公务出行"
+            android:textSize="23sp"
+            android:layout_alignRight="@id/content_tv"
+            android:layout_marginBottom="10dp"
+            android:layout_above="@id/content_tv"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/phone_re"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_below="@id/top_re">
+        <EditText
+            android:maxLength="11"
+            android:padding="10dp"
+            android:background="@drawable/background_edit"
+            android:hint="请输入公司名称"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:id="@+id/et_company"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/query_tv"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/phone_re"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/background_yellow_text"
+        android:layout_marginLeft="20dp"
+        android:text="公司查询"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/login_tv"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/query_tv"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="已有账号密码，点击登录"/>
+    <TextView
+        android:id="@+id/call_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="400-300-1234"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/call_tv"
+        android:layout_marginBottom="5dp"
+        android:text="若公司未签约公车出行，请联系客服"/>
+
+</RelativeLayout>
