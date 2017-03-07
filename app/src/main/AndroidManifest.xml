@@ -24,6 +24,7 @@
         <activity android:name=".view.activity.SubmitPersonInfoActivity" />
         <activity android:name=".view.activity.LoginActivity" />
         <activity android:name=".view.activity.MessageActivity"></activity>
+        <activity android:name=".view.activity.BusinessActivity"/>
     </application>
 
 </manifest>
