@@ -9,21 +9,21 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.MainActivity">
-        </activity>
-        <activity android:name=".view.activity.BaseActivity"
+        <activity android:name=".view.activity.MainActivity"></activity>
+        <activity
+            android:name=".view.activity.BaseActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar" />
         <activity android:name=".view.activity.RegisterActivity">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".view.activity.QueryCompanyActivity"/>
-        <activity android:name=".view.activity.SubmitPersonInfoActivity"/>
-        <activity android:name=".view.activity.LoginActivity"/>
-
+        <activity android:name=".view.activity.QueryCompanyActivity" />
+        <activity android:name=".view.activity.SubmitPersonInfoActivity" />
+        <activity android:name=".view.activity.LoginActivity" />
+        <activity android:name=".view.activity.MessageActivity"></activity>
     </application>
 
 </manifest>
