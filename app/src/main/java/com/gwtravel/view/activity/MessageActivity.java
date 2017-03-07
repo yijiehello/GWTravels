@@ -11,8 +11,6 @@ import butterknife.OnClick;
 public class MessageActivity extends BaseActivity {
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
