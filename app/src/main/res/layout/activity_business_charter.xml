@@ -58,6 +58,7 @@
                         android:layout_marginRight="10dp"
                         android:src="@mipmap/rolladd"/>
                     <EditText
+                        android:id="@+id/start_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -92,6 +93,7 @@
                         android:layout_centerVertical="true"
                         android:src="@drawable/background_dotblue"/>
                     <EditText
+                        android:id="@+id/end_et"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
@@ -150,10 +152,13 @@
                         android:textSize="16sp"
                         android:layout_centerVertical="true"/>
                     <EditText
+                        android:id="@+id/car_et"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_toRightOf="@id/car_tv"
                         android:textSize="16sp"
+                        android:background="@null"
+                        android:paddingRight="10dp"
                         android:gravity="right|center_vertical"
                         android:hint="请输入上车人数"/>
 
@@ -182,6 +187,7 @@
                         android:layout_height="wrap_content"
                         android:text="请选择出发时间"
                         android:textSize="16sp"
+                        android:padding="10dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"/>
 
@@ -206,6 +212,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
+                        android:padding="10dp"
                         android:text="请选择车辆类型和数量"
                         android:textSize="16sp"/>
 
@@ -299,7 +306,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
-                        android:text="月结付费"
+                        android:text="单次付费"
                         android:textSize="16sp"
                         android:layout_marginRight="10dp"
                         android:layout_toLeftOf="@id/monthtwo_img"
@@ -319,6 +326,7 @@
                 android:id="@+id/call_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:padding="10dp"
                 android:text="快捷下单，拨打包车热线：4000-123456"
                 android:textSize="14sp"
                 android:layout_marginTop="50dp"
