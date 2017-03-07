@@ -214,4 +214,54 @@
     </RelativeLayout>
 
 
+
+
+
+    <LinearLayout
+       android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="65dp">
+
+        <LinearLayout
+            android:id="@+id/linear_Chartered"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_weight="3"
+            android:layout_width="0dp">
+
+            <TextView
+                android:textSize="18sp"
+                android:id="@+id/tv_Chartered"
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/cars"
+                android:text="包车"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_inspect_ticket"
+            android:background="@color/yellowroundbg"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:drawablePadding="10dp"
+                android:id="@+id/tv_inspect_ticket"
+                android:gravity="center"
+                android:drawableTop="@mipmap/ticket"
+                android:text="验票"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 </RelativeLayout>

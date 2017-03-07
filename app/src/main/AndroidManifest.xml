@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.MainActivity"></activity>
+        <activity android:name=".view.activity.MainActivity" />
         <activity
             android:name=".view.activity.BaseActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar" />
@@ -23,8 +23,12 @@
         <activity android:name=".view.activity.QueryCompanyActivity" />
         <activity android:name=".view.activity.SubmitPersonInfoActivity" />
         <activity android:name=".view.activity.LoginActivity" />
-        <activity android:name=".view.activity.MessageActivity"></activity>
-        <activity android:name=".view.activity.BusinessActivity"/>
+        <activity android:name=".view.activity.MessageActivity" />
+        <activity android:name=".view.activity.BusinessActivity" />
+        <activity android:name=".view.activity.MyBillsActivity" />
+        <activity android:name=".view.activity.HelpActivity" />
+        <activity android:name=".view.activity.SettingActivity" />
+        <activity android:name=".view.activity.AddressActivity"></activity>
     </application>
 
 </manifest>

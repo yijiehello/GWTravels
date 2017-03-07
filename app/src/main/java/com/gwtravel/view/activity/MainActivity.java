@@ -29,7 +29,8 @@ public class MainActivity extends BaseActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.iv_user,R.id.iv_message})
+    @OnClick({R.id.iv_user,R.id.iv_message,R.id.linear_bills,R.id.linear_address,R.id.linear_help,R.id.linear_service,
+            R.id.linear_setting,R.id.linear_Chartered,R.id.linear_inspect_ticket})
 
     public void onClick(View view){
         switch (view.getId()){
@@ -39,6 +40,28 @@ public class MainActivity extends BaseActivity {
             case R.id.iv_message:
                 startActivity(new Intent(MainActivity.this,MessageActivity.class));
                 break;
+            case R.id.linear_bills:
+                startActivity(new Intent(MainActivity.this,MyBillsActivity.class));
+                break;
+            case R.id.linear_address:
+                startActivity(new Intent(MainActivity.this,AddressActivity.class));
+                break;
+            case R.id.linear_help:
+                startActivity(new Intent(MainActivity.this,HelpActivity.class));
+                break;
+            case R.id.linear_service:
+
+                break;
+            case R.id.linear_setting:
+                startActivity(new Intent(MainActivity.this,SettingActivity.class));
+                break;
+            case R.id.linear_Chartered:
+                startActivity(new Intent(MainActivity.this,BusinessActivity.class));
+                break;
+            case R.id.linear_inspect_ticket:
+
+                break;
+
 
         }
     }
