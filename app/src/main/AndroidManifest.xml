@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".view.activity.QueryCompanyActivity"/>
         <activity android:name=".view.activity.SubmitPersonInfoActivity"/>
+        <activity android:name=".view.activity.LoginActivity"/>
 
     </application>
 
