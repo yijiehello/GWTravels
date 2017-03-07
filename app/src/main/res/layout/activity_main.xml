@@ -16,7 +16,100 @@
         <FrameLayout
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/yellowroundbg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_user"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:src="@mipmap/user" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="公务出行"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_message"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/message" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="65dp"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/linear_Chartered"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_Chartered"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:drawableLeft="@mipmap/cars"
+                            android:drawablePadding="10dp"
+                            android:gravity="center"
+                            android:text="包车"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linear_inspect_ticket"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/yellowroundbg"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_inspect_ticket"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="10dp"
+                            android:drawableTop="@mipmap/ticket"
+                            android:gravity="center"
+                            android:text="验票" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
 
         <RelativeLayout
             android:id="@+id/right_drawer"
@@ -175,93 +268,5 @@
 
         </RelativeLayout>
     </android.support.v4.widget.DrawerLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/yellowroundbg"
-        android:gravity="center_vertical"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/iv_user"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:src="@mipmap/user" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="公务出行"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp" />
-
-        <ImageView
-            android:id="@+id/iv_message"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:src="@mipmap/message" />
-
-    </RelativeLayout>
-
-
-
-
-
-    <LinearLayout
-       android:layout_alignParentBottom="true"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="65dp">
-
-        <LinearLayout
-            android:id="@+id/linear_Chartered"
-            android:gravity="center"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:layout_weight="3"
-            android:layout_width="0dp">
-
-            <TextView
-                android:textSize="18sp"
-                android:id="@+id/tv_Chartered"
-                android:drawablePadding="10dp"
-                android:drawableLeft="@mipmap/cars"
-                android:text="包车"
-                android:gravity="center"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/linear_inspect_ticket"
-            android:background="@color/yellowroundbg"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:drawablePadding="10dp"
-                android:id="@+id/tv_inspect_ticket"
-                android:gravity="center"
-                android:drawableTop="@mipmap/ticket"
-                android:text="验票"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 </RelativeLayout>
