@@ -30,7 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <RelativeLayout
+            <LinearLayout
                 android:id="@+id/path_re"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -38,6 +38,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
+                android:orientation="vertical"
                 android:background="@drawable/background_edit_lightgrey">
                 <RelativeLayout
                     android:id="@+id/start_re"
@@ -77,14 +78,98 @@
                     android:layerType="software"
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_below="@id/start_re"
                     android:layout_marginLeft="25dp"
                     android:layout_marginRight="25dp"
                     android:background="@color/lightgreybackground"/>
                 <RelativeLayout
+                    android:id="@+id/starttwo_re"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:visibility="gone">
+                    <ImageView
+                        android:id="@+id/dottwo_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/background_dotyellow"/>
+                    <ImageView
+                        android:id="@+id/addtwo_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/rollsubtract"/>
+                    <EditText
+                        android:id="@+id/starttwo_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/dottwo_img"
+                        android:layout_toLeftOf="@id/addtwo_img"
+                        android:paddingLeft="5dp"
+                        android:hint="起点2"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:layout_marginLeft="10dp"/>
+
+
+                </RelativeLayout>
+                <View
+                    android:id="@+id/view2"
+                    android:layerType="software"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:visibility="gone"
+                    android:background="@color/lightgreybackground"/>
+                <RelativeLayout
+                    android:id="@+id/startthree_re"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="50dp">
+                    <ImageView
+                        android:id="@+id/dotthree_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/background_dotyellow"/>
+                    <ImageView
+                        android:id="@+id/addthree_img"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:src="@mipmap/rollsubtract"/>
+                    <EditText
+                        android:id="@+id/startthree_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/dotthree_img"
+                        android:layout_toLeftOf="@id/addthree_img"
+                        android:paddingLeft="5dp"
+                        android:hint="起点3"
+                        android:textSize="16sp"
+                        android:background="@null"
+                        android:layout_marginLeft="10dp"/>
+
+
+                </RelativeLayout>
+                <View
+                    android:id="@+id/view3"
+                    android:layerType="software"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="25dp"
+                    android:visibility="gone"
+                    android:background="@color/lightgreybackground"/>
+                <RelativeLayout
                     android:id="@+id/end_re"
                     android:layout_width="match_parent"
-                    android:layout_below="@id/view1"
                     android:layout_height="50dp">
                     <ImageView
                         android:id="@+id/dot_img2"
@@ -106,7 +191,7 @@
 
                 </RelativeLayout>
 
-            </RelativeLayout>
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

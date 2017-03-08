@@ -48,6 +48,10 @@ public class BusinessActivity extends BaseActivity{
     ImageView back_btn;
     @BindView(R.id.add_img)
     ImageView add_img;
+    @BindView(R.id.addtwo_img)
+    ImageView addtwo_img;
+    @BindView(R.id.addthree_img)
+    ImageView addthree_img;
     @BindView(R.id.monthone_img)
     ImageView monthone_img;
     @BindView(R.id.monthtwo_img)
@@ -55,6 +59,10 @@ public class BusinessActivity extends BaseActivity{
 
     @BindView(R.id.start_et)
     EditText start_et;
+    @BindView(R.id.starttwo_et)
+    EditText starttwo_et;
+    @BindView(R.id.startthree_et)
+    EditText startthree_et;
     @BindView(R.id.end_et)
     EditText end_et;
     @BindView(R.id.car_et)
@@ -68,6 +76,17 @@ public class BusinessActivity extends BaseActivity{
     TextView call_tv;
     @BindView(R.id.put_tv)
     TextView put_tv;
+
+    @BindView(R.id.starttwo_re)
+    RelativeLayout starttwo_re;
+    @BindView(R.id.startthree_re)
+    RelativeLayout startthree_re;
+
+    @BindView(R.id.view2)
+    View view2;
+    @BindView(R.id.view3)
+    View view3;
+
 
     private Boolean flag=true;
 
@@ -85,6 +104,7 @@ public class BusinessActivity extends BaseActivity{
     private CarTypeAdapter typeAdapter;
     private ArrayList<Map<String,Object>> typedata=new ArrayList<>();
     private String[] name={"商务7座","商务15座","中巴22座","中巴33座","中巴39座"};
+    private int FLAG=1;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,14 +123,38 @@ public class BusinessActivity extends BaseActivity{
 
     }
     @OnClick({R.id.back_btn,R.id.add_img,R.id.monthone_img,R.id.monthtwo_img,
-            R.id.time_tv,R.id.cartype_tv,R.id.call_tv,R.id.put_tv})
+            R.id.time_tv,R.id.cartype_tv,R.id.call_tv,R.id.put_tv,R.id.addtwo_img,R.id.addthree_img})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.back_btn:
                 finish();
                 break;
             case R.id.add_img:
-
+                if(FLAG==1){
+                    starttwo_re.setVisibility(View.VISIBLE);
+                    view2.setVisibility(View.VISIBLE);
+                    FLAG+=1;
+                }else if(FLAG==2){
+                    startthree_re.setVisibility(View.VISIBLE);
+                    view3.setVisibility(View.VISIBLE);
+                    FLAG+=1;
+                }
+                break;
+            case R.id.addtwo_img:
+                if(FLAG==3){
+                    startthree_re.setVisibility(View.GONE);
+                    view3.setVisibility(View.GONE);
+                    FLAG-=1;
+                }else{
+                    starttwo_re.setVisibility(View.GONE);
+                    view2.setVisibility(View.GONE);
+                    FLAG-=1;
+                }
+                break;
+            case R.id.addthree_img:
+                startthree_re.setVisibility(View.GONE);
+                view3.setVisibility(View.GONE);
+                FLAG-=1;
                 break;
             case R.id.monthone_img:
                 flag=true;
@@ -121,14 +165,6 @@ public class BusinessActivity extends BaseActivity{
                 select();
                 break;
             case R.id.time_tv:
-//                calendar = Calendar.getInstance();
-//                dialog = new DatePickerDialog(BusinessActivity.this, new DatePickerDialog.OnDateSetListener() {
-//                    @Override
-//                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-//                        time_tv.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
-//                    }
-//                }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
-//                dialog.show();
                 timepopwindow();
                 ppw.showAtLocation(time_tv, Gravity.BOTTOM,0,0);
                 break;
@@ -139,7 +175,7 @@ public class BusinessActivity extends BaseActivity{
             case R.id.call_tv:
                 Intent intent=new Intent();
                 intent.setAction(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:"+"027-87122688"));
+                intent.setData(Uri.parse("tel:"+"4000-123456"));
                 startActivity(intent);
                 break;
             case R.id.put_tv:
@@ -291,7 +327,6 @@ public class BusinessActivity extends BaseActivity{
         affirm_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 ppw.dismiss();
             }
         });

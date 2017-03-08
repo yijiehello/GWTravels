@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by yiheyu on 2016/11/8.
  */
 
-public class CarTypeAdapter extends BaseAdapter implements View.OnClickListener{
+public class CarTypeAdapter extends BaseAdapter {
     private LayoutInflater ml;
     private Context context;
     private ArrayList<Map<String,Object>> datas;
@@ -62,25 +62,31 @@ public class CarTypeAdapter extends BaseAdapter implements View.OnClickListener{
             view = convertView;
             holder=(ViewHolder) view.getTag();
         }
-
-
         Map<String,Object> data=datas.get(i);
         holder.name_tv.setText(data.get("item").toString());
-        holder.num_tv.setText(""+nums);
+        holder.add_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nums+=1;
+                holder.num_tv.setText(nums+"");
+            }
+        });
+        holder.subtract_img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nums-=1;
+                if(nums<=0){
+                    holder.num_tv.setText("0");
+                }else{
+                    holder.num_tv.setText(nums+"");
+                }
+
+            }
+        });
+
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.add_img:
-                nums+=1;
-                break;
-            case R.id.subtract_img:
-                nums-=1;
-                break;
-        }
-    }
 
     class ViewHolder{
        TextView name_tv,num_tv;
