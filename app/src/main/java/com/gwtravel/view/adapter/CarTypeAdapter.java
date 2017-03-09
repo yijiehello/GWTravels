@@ -20,24 +20,24 @@ import java.util.Map;
 public class CarTypeAdapter extends BaseAdapter {
     private LayoutInflater ml;
     private Context context;
-    private ArrayList<Map<String,Object>> datas;
-    private int nums=0;
+    private ArrayList<Map<String, Object>> datas;
+    private int nums = 0;
 
     public CarTypeAdapter(Context context, ArrayList<Map<String, Object>> datas) {
         this.context = context;
         this.datas = datas;
-        ml=LayoutInflater.from(context);
+        ml = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return datas==null ? 0 : datas.size();
+        return datas == null ? 0 : datas.size();
 
     }
 
     @Override
     public Object getItem(int i) {
-        return datas==null ? null : datas.get(i);
+        return datas == null ? null : datas.get(i);
     }
 
     @Override
@@ -49,36 +49,36 @@ public class CarTypeAdapter extends BaseAdapter {
     public View getView(int i, View convertView, ViewGroup viewGroup) {
         View view;
         final ViewHolder holder;
-        if(convertView==null){
+        if (convertView == null) {
             view = ml.inflate(R.layout.popuwindow_car_type_item, null);
-            holder=new ViewHolder();
+            holder = new ViewHolder();
 
-            holder.name_tv=(TextView) view.findViewById(R.id.name_tv);
-            holder.num_tv=(TextView) view.findViewById(R.id.num_tv);
-            holder.add_img= (ImageView) view.findViewById(R.id.add_img);
-            holder.subtract_img= (ImageView) view.findViewById(R.id.subtract_img);
+            holder.name_tv = (TextView) view.findViewById(R.id.name_tv);
+            holder.num_tv = (TextView) view.findViewById(R.id.num_tv);
+            holder.add_img = (ImageView) view.findViewById(R.id.add_img);
+            holder.subtract_img = (ImageView) view.findViewById(R.id.subtract_img);
             view.setTag(holder);
-        }else{
+        } else {
             view = convertView;
-            holder=(ViewHolder) view.getTag();
+            holder = (ViewHolder) view.getTag();
         }
-        Map<String,Object> data=datas.get(i);
+        Map<String, Object> data = datas.get(i);
         holder.name_tv.setText(data.get("item").toString());
         holder.add_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nums+=1;
-                holder.num_tv.setText(nums+"");
+                nums += 1;
+                holder.num_tv.setText(nums + "");
             }
         });
         holder.subtract_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                nums-=1;
-                if(nums<=0){
+                nums -= 1;
+                if (nums <= 0) {
                     holder.num_tv.setText("0");
-                }else{
-                    holder.num_tv.setText(nums+"");
+                } else {
+                    holder.num_tv.setText(nums + "");
                 }
 
             }
@@ -88,9 +88,9 @@ public class CarTypeAdapter extends BaseAdapter {
     }
 
 
-    class ViewHolder{
-       TextView name_tv,num_tv;
-        ImageView add_img,subtract_img;
+    class ViewHolder {
+        TextView name_tv, num_tv;
+        ImageView add_img, subtract_img;
 
     }
 }
