@@ -3,11 +3,12 @@ package com.gwtravel.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.gwtravel.R;
+import com.gwtravel.view.adapter.HelpAdapter;
+import com.gwtravel.view.bean.HelpEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +22,10 @@ public class HelpActivity extends BaseActivity {
     @BindView(R.id.lv_problem)
     ListView lv_problem;
 
+    List<HelpEntity> helpEntities;
+
+    HelpAdapter helpAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,28 +38,24 @@ public class HelpActivity extends BaseActivity {
 
     private void init() {
 
-        List<String> problem = new ArrayList<>();
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
-        problem.add("如何注册");
+        helpEntities = new ArrayList<>();
+        helpEntities.add(new HelpEntity("如何注册"));
+        helpEntities.add(new HelpEntity("如何购票"));
+        helpEntities.add(new HelpEntity("如何设置地址线路"));
+        helpEntities.add(new HelpEntity("如何取消订单"));
+        helpEntities.add(new HelpEntity("如何注册"));
+        helpEntities.add(new HelpEntity("如何注册"));
+        helpEntities.add(new HelpEntity("如何购票"));
+        helpEntities.add(new HelpEntity("如何设置地址线路"));
+        helpEntities.add(new HelpEntity("如何取消订单"));
+        helpEntities.add(new HelpEntity("如何注册"));
+        helpEntities.add(new HelpEntity("如何注册"));
+        helpEntities.add(new HelpEntity("如何购票"));
+        helpEntities.add(new HelpEntity("如何设置地址线路"));
+        helpEntities.add(new HelpEntity("如何取消订单"));
+        helpEntities.add(new HelpEntity("如何注册"));
+
+
 
         View headerView = View.inflate(HelpActivity.this, R.layout.help_header_view, null);
 
@@ -68,8 +69,11 @@ public class HelpActivity extends BaseActivity {
         });
 
         lv_problem.addHeaderView(headerView);
-        ArrayAdapter<String> carAdapter = new ArrayAdapter<>(HelpActivity.this, android.R.layout.simple_spinner_item, problem);
-        lv_problem.setAdapter(carAdapter);
+//        ArrayAdapter<String> carAdapter = new ArrayAdapter<>(HelpActivity.this, android.R.layout.simple_spinner_item, problem);
+
+        helpAdapter = new HelpAdapter(HelpActivity.this,helpEntities);
+
+        lv_problem.setAdapter(helpAdapter);
 
     }
 
