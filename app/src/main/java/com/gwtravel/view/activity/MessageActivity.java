@@ -19,7 +19,7 @@ public class MessageActivity extends BaseActivity {
     }
 
 
-    @OnClick({R.id.iv_back,R.id.tv_del})
+    @OnClick({R.id.iv_back, R.id.tv_del})
 
     public void onClick(View view){
         switch (view.getId()){

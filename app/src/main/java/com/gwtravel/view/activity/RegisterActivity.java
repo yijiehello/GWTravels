@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
 import com.gwtravel.R;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -22,7 +24,7 @@ import butterknife.OnClick;
  * Created by yiheyu on 2017/3/6.
  */
 
-public class RegisterActivity extends BaseActivity{
+public class RegisterActivity extends BaseActivity {
     @BindView(R.id.login_tv)
     TextView login_tv;
 
@@ -77,7 +79,7 @@ public class RegisterActivity extends BaseActivity{
 
     }
 
-    @OnClick({R.id.login_tv,R.id.register_tv,R.id.send_btn})
+    @OnClick({R.id.login_tv, R.id.register_tv, R.id.send_btn})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.login_tv:

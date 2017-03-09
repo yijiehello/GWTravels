@@ -48,7 +48,7 @@ public class LoginActivity extends BaseActivity {
     private void init() {
 
     }
-    @OnClick({R.id.login_tv,R.id.back_btn,R.id.forget_tv,R.id.phone_et,R.id.password_et})
+    @OnClick({R.id.login_tv, R.id.back_btn, R.id.forget_tv, R.id.phone_et, R.id.password_et})
 
     public void onClick(View view){
         switch (view.getId()){

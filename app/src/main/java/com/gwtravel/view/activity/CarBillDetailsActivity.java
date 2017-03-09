@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -18,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.gwtravel.R;
 
@@ -25,68 +25,71 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends BaseActivity {
+public class CarBillDetailsActivity extends BaseActivity {
+    @BindView(R.id.back_btn)
+    ImageView back_btn;
 
+    @BindView(R.id.cancel_tv)
+    TextView cancel_tv;
+    @BindView(R.id.start_tv)
+    TextView start_tv;
+    @BindView(R.id.way_tv)
+    TextView way_tv;
+    @BindView(R.id.end_tv)
+    TextView end_tv;
 
-    @BindView(R.id.drawer_layout)
-    DrawerLayout mDrawerLayout;
-
-    @BindView(R.id.iv_user)
-    ImageView iv_user;
+    @BindView(R.id.ticket_time)
+    TextView ticket_time;
+    @BindView(R.id.state_tv)
+    TextView state_tv;
+    @BindView(R.id.number_tv)
+    TextView number_tv;
+    @BindView(R.id.charge_tv)
+    TextView charge_tv;
+    @BindView(R.id.bill_time)
+    TextView bill_time;
+    @BindView(R.id.usecar_num)
+    TextView usecar_num;
+    @BindView(R.id.usecartype_tv)
+    TextView usecartype_tv;
+    @BindView(R.id.people_tv)
+    TextView people_tv;
+    @BindView(R.id.phone_tv)
+    TextView phone_tv;
+    @BindView(R.id.problem_tv)
+    TextView problem_tv;
 
     private LayoutInflater ml;
     private PopupWindow ppw;
     private static final int CALL_PHONE_REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_car_bill_details);
         ButterKnife.bind(this);
     }
-
-    @OnClick({R.id.iv_user, R.id.iv_message, R.id.linear_bills, R.id.linear_address, R.id.linear_help, R.id.linear_service,
-            R.id.linear_setting, R.id.linear_Chartered, R.id.linear_inspect_ticket})
-
+    @OnClick({R.id.back_btn, R.id.cancel_tv, R.id.problem_tv})
     public void onClick(View view){
-        switch (view.getId()){
-            case R.id.iv_user:
-                mDrawerLayout.openDrawer(Gravity.LEFT);
+        switch(view.getId()){
+            case R.id.back_btn:
+                finish();
                 break;
-            case R.id.iv_message:
-                startActivity(new Intent(MainActivity.this,MessageActivity.class));
+            case R.id.cancel_tv:
+                startActivity(new Intent(CarBillDetailsActivity.this,BuyTicketActivity.class));
                 break;
-            case R.id.linear_bills:
-                startActivity(new Intent(MainActivity.this,MyBillsActivity.class));
-                break;
-            case R.id.linear_address:
-                startActivity(new Intent(MainActivity.this,AddressActivity.class));
-                break;
-            case R.id.linear_help:
-                startActivity(new Intent(MainActivity.this,HelpActivity.class));
-                break;
-            case R.id.linear_service:
+            case R.id.problem_tv:
                 show_dialog();
-                ppw.showAtLocation(view, Gravity.CENTER,0,0);
-                mDrawerLayout.closeDrawers();
+                ppw.showAtLocation(problem_tv, Gravity.CENTER,0,0);
                 break;
-            case R.id.linear_setting:
-                startActivity(new Intent(MainActivity.this,SettingActivity.class));
-                mDrawerLayout.closeDrawers();
-                break;
-            case R.id.linear_Chartered:
-                startActivity(new Intent(MainActivity.this,BusinessActivity.class));
-                break;
-            case R.id.linear_inspect_ticket:
-
-                break;
-
 
         }
-    }
 
+    }
+    //客服的弹出框
     private void show_dialog() {
         //实例化ml
-        ml = LayoutInflater.from(MainActivity.this);
+        ml = LayoutInflater.from(CarBillDetailsActivity.this);
         //将自定义布局转换为View对象
         final View viewtwo = ml.inflate(R.layout.calltoservice_popwindow, null);
         DisplayMetrics dm = new DisplayMetrics();
@@ -118,13 +121,14 @@ public class MainActivity extends BaseActivity {
         yes_ll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.CALL_PHONE)
+                if (ContextCompat.checkSelfPermission(CarBillDetailsActivity.this, Manifest.permission.CALL_PHONE)
                         != PackageManager.PERMISSION_GRANTED) {
                     //申请WRITE_EXTERNAL_STORAGE权限
-                    ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.CALL_PHONE}, CALL_PHONE_REQUEST_CODE);
+                    ActivityCompat.requestPermissions(CarBillDetailsActivity.this,new String[]{Manifest.permission.CALL_PHONE},
+                            CALL_PHONE_REQUEST_CODE);
                 }else {
                     Intent intent = new Intent(Intent.ACTION_CALL);
-                    intent.setData(Uri.parse("tel:4001001111"));
+                    intent.setData(Uri.parse("tel:027-87122688"));
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     ppw.dismiss();
@@ -133,9 +137,4 @@ public class MainActivity extends BaseActivity {
         });
 
     }
-
-
-
-
-
 }

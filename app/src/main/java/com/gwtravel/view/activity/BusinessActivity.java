@@ -19,7 +19,6 @@ import android.widget.AdapterView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -43,7 +42,7 @@ import butterknife.OnClick;
  * Created by yiheyu on 2017/3/7.
  */
 
-public class BusinessActivity extends BaseActivity{
+public class BusinessActivity extends BaseActivity {
     @BindView(R.id.back_btn)
     ImageView back_btn;
     @BindView(R.id.add_img)
@@ -110,6 +109,8 @@ public class BusinessActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_business_charter);
         ButterKnife.bind(this);
+        start_et.setFocusable(false);
+        end_et.setFocusable(false);
         select();
         init();
     }
@@ -122,8 +123,9 @@ public class BusinessActivity extends BaseActivity{
         call_tv.setText(spannableString);
 
     }
-    @OnClick({R.id.back_btn,R.id.add_img,R.id.monthone_img,R.id.monthtwo_img,
-            R.id.time_tv,R.id.cartype_tv,R.id.call_tv,R.id.put_tv,R.id.addtwo_img,R.id.addthree_img})
+    @OnClick({R.id.back_btn, R.id.add_img, R.id.monthone_img, R.id.monthtwo_img,
+            R.id.time_tv, R.id.cartype_tv, R.id.call_tv, R.id.put_tv, R.id.addtwo_img,
+            R.id.addthree_img, R.id.start_et, R.id.end_et})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.back_btn:
@@ -179,7 +181,19 @@ public class BusinessActivity extends BaseActivity{
                 startActivity(intent);
                 break;
             case R.id.put_tv:
-
+                startActivity(new Intent(BusinessActivity.this,SubmitBillActivity.class));
+                break;
+            case R.id.start_et:
+                start_et.setFocusable(true);
+                start_et.setFocusableInTouchMode(true);
+                start_et.requestFocus();
+                start_et.requestFocusFromTouch();
+                break;
+            case R.id.end_et:
+                end_et.setFocusable(true);
+                end_et.setFocusableInTouchMode(true);
+                end_et.requestFocus();
+                end_et.requestFocusFromTouch();
                 break;
 
         }

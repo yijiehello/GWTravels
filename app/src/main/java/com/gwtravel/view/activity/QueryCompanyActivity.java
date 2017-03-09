@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.gwtravel.R;
@@ -26,7 +25,7 @@ import butterknife.OnClick;
  * Created by yiheyu on 2017/3/6.
  */
 
-public class QueryCompanyActivity extends BaseActivity{
+public class QueryCompanyActivity extends BaseActivity {
     @BindView(R.id.company_tv)
     AutoCompleteTextView company_tv;
 
@@ -69,7 +68,7 @@ public class QueryCompanyActivity extends BaseActivity{
         });
 
     }
-    @OnClick({R.id.login_tv,R.id.query_tv})
+    @OnClick({R.id.login_tv, R.id.query_tv})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.login_tv:

@@ -32,6 +32,9 @@
         <activity android:name=".view.activity.SettingActivity" />
         <activity android:name=".view.activity.AddressActivity" />
         <activity android:name=".view.activity.SearchActivity" />
+        <activity android:name=".view.activity.SubmitBillActivity" />
+        <activity android:name=".view.activity.CarBillDetailsActivity" />
+        <activity android:name=".view.activity.BuyTicketActivity"></activity>
         <activity android:name=".ShuttleBusDetialActivity"></activity>
     </application>
 

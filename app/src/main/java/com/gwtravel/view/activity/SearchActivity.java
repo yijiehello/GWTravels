@@ -17,7 +17,7 @@ import butterknife.OnClick;
  *
  */
 
-public class SearchActivity extends BaseActivity{
+public class SearchActivity extends BaseActivity {
     @BindView(R.id.btn_back)
     TextView btn_back;
     @BindView(R.id.et)

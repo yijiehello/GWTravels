@@ -55,8 +55,8 @@ public class SubmitPersonInfoActivity extends BaseActivity {
     private void init() {
 
     }
-    @OnClick({R.id.submit_tv,R.id.back_btn,R.id.name_et,R.id.connect_et,R.id.department_et,
-    R.id.job_et,R.id.company_et,R.id.home_et})
+    @OnClick({R.id.submit_tv, R.id.back_btn, R.id.name_et, R.id.connect_et, R.id.department_et,
+    R.id.job_et, R.id.company_et, R.id.home_et})
 
     public void onClick(View view){
         switch (view.getId()){
