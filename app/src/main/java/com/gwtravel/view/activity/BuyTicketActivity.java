@@ -1,12 +1,10 @@
 package com.gwtravel.view.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,10 +21,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.gwtravel.R;
-import com.gwtravel.control.ToastUtils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -79,11 +75,14 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
     private static int monthofday;
     HashSet<CalendarDay> dates=new HashSet<>();
 
+    EventDecorator eventDecorator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_ticket);
         ButterKnife.bind(this);
+        eventDecorator = new EventDecorator();
         init();
     }
 
@@ -157,10 +156,18 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
             dates.remove(date);
             HashSet<CalendarDay> data=new HashSet<>();
             data.add(date);
-            calendarView.removeDecorator(new EventDecorator(getResources().getColor(R.color.white),data));
+            eventDecorator.setColor(R.color.white);
+            eventDecorator.setDates(data);
+            calendarView.removeDecorator(eventDecorator);
+//            calendarView.removeDecorator(new EventDecorator(getResources().getColor(R.color.white),data));
         }else{
             dates.add(date);
-            calendarView.addDecorator(new EventDecorator(getResources().getColor(R.color.red),dates));
+            eventDecorator.setColor(R.color.red);
+            eventDecorator.setDates(dates);
+            calendarView.addDecorator(eventDecorator);
+
+
+//            calendarView.addDecorator(new EventDecorator(getResources().getColor(R.color.red),dates));
         }
         Log.e("dates----->",dates.toString());
         //给选中的日期加上红点
@@ -361,11 +368,31 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
         private int color;
         private HashSet<CalendarDay> dates;
 
+        public HashSet<CalendarDay> getDates() {
+            return dates;
+        }
+
+        public void setDates(HashSet<CalendarDay> dates) {
+            this.dates = dates;
+        }
+
+        public int getColor() {
+
+            return color;
+        }
+
+        public void setColor(int color) {
+            this.color = color;
+        }
+
+        public EventDecorator() {
+        }
+
         public EventDecorator(int color, Collection<CalendarDay> dates) {
             this.color = color;
             this.dates = new HashSet<>(dates);
         }
-
+//
         @Override
         public boolean shouldDecorate(CalendarDay day) {
             return dates.contains(day) ;
@@ -375,6 +402,7 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
         public void decorate(DayViewFacade view) {
             view.addSpan(new DotSpan(5, color));
             Log.e("TAG====",color+"");
+
         }
     }
 
