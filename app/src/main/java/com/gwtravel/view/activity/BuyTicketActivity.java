@@ -12,6 +12,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gwtravel.R;
+import com.gwtravel.control.ToastUtils;
 import com.prolificinteractive.materialcalendarview.CalendarDay;
 import com.prolificinteractive.materialcalendarview.DayViewDecorator;
 import com.prolificinteractive.materialcalendarview.DayViewFacade;
@@ -32,6 +34,7 @@ import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -63,6 +66,13 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
     private static final int CALL_PHONE_REQUEST_CODE = 1;
     private static final DateFormat FORMATTER = SimpleDateFormat.getDateInstance();
 
+    private String selectDate,selectyear,selectmonth,selectday;
+    private String currentDate;
+    private String currentyear;
+    private String currentmonth;
+    private static String currentday="20";
+    private static int monthofday;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,12 +82,35 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
     }
 
     private void init() {
+        //获取当前系统时间
+        SimpleDateFormat  formatter = new  SimpleDateFormat("yyyy年MM月dd日");
+        Date curDate= new  Date(System.currentTimeMillis());//获取当前时间
+        currentDate= formatter.format(curDate);
+        currentyear=currentDate.substring(0,4);
+        currentmonth=currentDate.substring(currentDate.indexOf("年")+1,currentDate.indexOf("月"));
+        if(currentmonth.substring(0,1).equals("0")){
+            currentmonth=currentmonth.substring(1,2);
+        }
+        if(currentmonth.equals("1") || currentmonth.equals("3") ||currentmonth.equals("5") || currentmonth.equals("7")
+                || currentmonth.equals("8") || currentmonth.equals("10") || currentmonth.equals("12")){
+            monthofday=31;
+        }else if(currentmonth.equals("4") || currentmonth.equals("6") || currentmonth.equals("9") ||currentmonth.equals("11") ){
+            monthofday=30;
+        }else{
+            monthofday=28;
+        }
+//        currentday=currentDate.substring(currentDate.indexOf("月")+1,currentDate.indexOf("日"));
+
         //设置滑动选择改变月份事件
         calendarView.setOnMonthChangedListener(this);
         calendarView.setOnDateChangedListener(this);
 
+        //设置每月1-31都不可点击
         calendarView.addDecorator(new PrimeDayDisableDecorator());
+        //设置每月的哪几号（可设置区段）可以点击
         calendarView.addDecorator(new EnableOneToTenDecorator());
+
+
 
     }
 
@@ -88,13 +121,27 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
      */
     @Override
     public void onMonthChanged(MaterialCalendarView materialCalendarView, CalendarDay calendarDay) {
-//        getSupportActionBar().setTitle(FORMATTER.format(calendarDay.getDate()));
+        if(currentmonth.equals(calendarDay.getMonth()+1+"")){
+            Log.e("相同--->",calendarDay.getMonth()+"");
+            calendarView.addDecorator(new EnableOneToTenDecorator());//移动到本月时解绑
+        }else{
+            calendarView.addDecorator(new PrimeDayDisableDecorator());
+            if(Integer.parseInt(currentday)+14>monthofday && currentmonth.equals(calendarDay.getMonth()+"")){
+                calendarView.addDecorator(new EnableOverDecorator());//对超出本月的天数做解绑
+            }
+            Log.e("不相同--->",calendarDay.getMonth()+"");
+        }
+
     }
 
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
         Toast.makeText(this, getSelectedDatesString(), Toast.LENGTH_SHORT).show();
-//        Log.e("TAG----",date.getDate().toString());
+        selectDate=getSelectedDatesString();
+        selectyear=selectDate.substring(0,4);
+        selectmonth=selectDate.substring(selectDate.indexOf("年")+1,selectDate.indexOf("月"));
+        selectday=selectDate.substring(selectDate.indexOf("月")+1,selectDate.indexOf("日"));
+
     }
 
     private String getSelectedDatesString() {
@@ -174,9 +221,8 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
 
     }
 
-    //对日历的item进行效果处理
+    //对日历的天数进行效果处理
     private static class EnableOneToTenDecorator implements DayViewDecorator {
-
         /**
          * 对<=10的日期，设置解除无法点击的效果
          * @param day {@linkplain CalendarDay} to possibly decorate
@@ -185,7 +231,8 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
          */
         @Override
         public boolean shouldDecorate(CalendarDay day) {
-            return day.getDay() <= 2;//2表示小于它天数即使设置了无法点击，也可以解除
+            return day.getDay() <=Integer.parseInt(currentday)+14 && day.getDay()>=Integer.parseInt(currentday);//解除不可点击
+
         }
 
         /**
@@ -197,7 +244,30 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
             view.setDaysDisabled(false);
         }
     }
-    //效果二
+    //对加上14天天数超过当月天数的处理
+    private static class EnableOverDecorator implements DayViewDecorator {
+        /**
+         * 对<=10的日期，设置解除无法点击的效果
+         * @param day {@linkplain CalendarDay} to possibly decorate
+         *
+         * @return
+         */
+        @Override
+        public boolean shouldDecorate(CalendarDay day) {
+            return day.getDay() <=Integer.parseInt(currentday)+14-monthofday ;//解除不可点击
+
+        }
+
+        /**
+         * 具体实现的效果
+         * @param view View to decorate
+         */
+        @Override
+        public void decorate(DayViewFacade view) {
+            view.setDaysDisabled(false);
+        }
+    }
+    //天数进行锁定
     private static class PrimeDayDisableDecorator implements DayViewDecorator {
 
         /**
@@ -221,44 +291,43 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
         }
 
         private static boolean[] PRIME_TABLE = {
-                false,  // 0?
-                false,
+                false,  // 0?false为可点击  true为不可点击
+                true,
                 true, // 2
                 true, // 3
-                false,
+                true,
                 true, // 5
-                false,
+                true,
                 true, // 7
-                false,
-                false,
-                false,
+                true,
+                true,
+                true,
                 true, // 11
-                false,
+                true,
                 true, // 13
-                false,
-                false,
-                false,
+                true,
+                true,
+                true,
                 true, // 17
-                false,
+                true,
                 true, // 19
-                false,
-                false,
-                false,
+                true,
+                true,
+                true,
                 true, // 23
-                false,
-                false,
-                false,
-                false,
-                false,
+                true,
+                true,
+                true,
+                true,
+                true,
                 true, // 29
-                false,
+                true,
                 true, // 31
                 false,
                 false,
                 false, //PADDING
         };
     }
-
 
 
 }
