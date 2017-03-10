@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_help_detial"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gwtravel.view.activity.HelpDetialActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/yellowroundbg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/whiteleft" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="帮助中心"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:text="如何注册?"
+        android:textColor="@color/yellowroundbg"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <TextView
+            android:layout_above="@+id/rl_jiejue"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/tv_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="面对孤独，我还是那句话，是心里的需要和生命向往高尚才让我心甘情愿地接受。是的，在孤独和庸俗之间做出选择，我没有表现出丝毫的犹豫，虽然我对孤独还没有太多的理解和体验以及心理上的准备，但从字面上去解读我还是明白两者之间存在的区别和差异。就这样，我就驾起孤独的车上路了，毫无疑问，车时常没油、抛锚现象时有发生，何况还有路面、风雨等始料不及的因素作祟，有些时候还真是让我有点措手不及。好在我有的是耐心、耐力，硬是凭着顽强的意志闯过了横在路面的各种关卡。是的，仅凭着这一点，就值得我去欢呼，毕竟在没有师傅教的前提下，独自翻山越岭将车开回了家。" />
+
+        <RelativeLayout
+            android:id="@+id/rl_jiejue"
+            android:layout_marginBottom="100dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:text="解决了您的问题？"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="120dp"
+                android:drawableLeft="@mipmap/like"
+                android:drawablePadding="5dp"
+                android:text="解决"
+                android:textSize="16sp" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:drawableLeft="@mipmap/greylike"
+                android:drawablePadding="5dp"
+                android:text="未解决"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_call"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/go_to_buy_bg"
+            android:gravity="center"
+            android:text="未解决？打电话问问吧"
+            android:textColor="@color/orangeroundbg" />
+
+    </RelativeLayout>
+
+</LinearLayout>

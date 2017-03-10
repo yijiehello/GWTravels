@@ -4,21 +4,45 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+
+
+    <RelativeLayout
+        android:background="@color/yellowroundbg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/drakbluebg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:id="@+id/iv_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/whiteleft" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="帮助中心"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:background="#c4c2c2"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="40dp"
-            android:layout_height="match_parent">
-
-        </LinearLayout>
-
-
-        <LinearLayout
+            android:layout_marginLeft="20dp"
+            android:background="@color/white"
             android:id="@+id/search_edit"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -34,16 +58,17 @@
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
-                android:hint="bakeries"
+                android:hint="有问题点我"
                 android:layout_marginLeft="5dp"
                 android:gravity="center_vertical"
-                android:background="@null"
-                android:textColorHint="#ffffff"
-                android:textColor="@color/white"/>
+                android:background="@drawable/search_bg"
+                android:textColorHint="#c2c0c0"
+                android:textColor="#c2c0c0"/>
 
         </LinearLayout>
+
         <TextView
-            android:id="@+id/btn_back"
+            android:id="@+id/tv_back"
             android:layout_width="50dp"
             android:layout_height="25dp"
             android:layout_centerVertical="true"
@@ -56,5 +81,23 @@
              />
 
     </LinearLayout>
+
+
+    <TextView
+        android:layout_marginLeft="20dp"
+        android:gravity="center_vertical"
+        android:text="大家都在问："
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
+
+    <ListView
+
+        android:id="@+id/lv_problem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
 
 </LinearLayout>

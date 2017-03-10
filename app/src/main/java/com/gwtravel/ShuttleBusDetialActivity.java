@@ -1,10 +1,12 @@
 package com.gwtravel;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 
 import com.gwtravel.view.activity.BaseActivity;
+import com.gwtravel.view.activity.BuyTicketActivity;
 import com.gwtravel.view.adapter.BusStationAdapter;
 import com.gwtravel.view.bean.BusLineEntity;
 
@@ -70,7 +72,7 @@ public class ShuttleBusDetialActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.tv_go_buy:
-
+                startActivity(new Intent(ShuttleBusDetialActivity.this, BuyTicketActivity.class));
                 break;
         }
     }

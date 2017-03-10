@@ -3,6 +3,7 @@ package com.gwtravel.view.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -74,6 +75,17 @@ public class HelpActivity extends BaseActivity {
         helpAdapter = new HelpAdapter(HelpActivity.this,helpEntities);
 
         lv_problem.setAdapter(helpAdapter);
+
+
+        lv_problem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(HelpActivity.this,HelpDetialActivity.class));
+            }
+        });
+
+
+
 
     }
 

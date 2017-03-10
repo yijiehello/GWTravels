@@ -9,7 +9,7 @@
         android:gravity="center"
         android:background="#dcdbdb"
         android:layout_width="match_parent"
-        android:layout_height="30dp">
+        android:layout_height="50dp">
         <LinearLayout
             android:id="@+id/linear_search_s"
             android:layout_marginLeft="20dp"
@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <TextView
+                android:gravity="center"
                 android:drawablePadding="5dp"
                 android:background="@drawable/search_bg"
                 android:text="有问题点我"
                 android:drawableLeft="@mipmap/search"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="30dp" />
 
         </LinearLayout>
 
