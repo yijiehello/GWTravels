@@ -76,7 +76,7 @@ public class CarBillDetailsActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.cancel_tv:
-                startActivity(new Intent(CarBillDetailsActivity.this,BuyTicketActivity.class));
+
                 break;
             case R.id.problem_tv:
                 show_dialog();

@@ -1,10 +1,12 @@
 package com.gwtravel.view.activity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -31,10 +33,13 @@ import com.prolificinteractive.materialcalendarview.DayViewFacade;
 import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
 import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
+import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -70,8 +75,9 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
     private String currentDate;
     private String currentyear;
     private String currentmonth;
-    private static String currentday="20";
+    private static String currentday;
     private static int monthofday;
+    HashSet<CalendarDay> dates=new HashSet<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,9 +94,11 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
         currentDate= formatter.format(curDate);
         currentyear=currentDate.substring(0,4);
         currentmonth=currentDate.substring(currentDate.indexOf("年")+1,currentDate.indexOf("月"));
+        //截取月份字段
         if(currentmonth.substring(0,1).equals("0")){
             currentmonth=currentmonth.substring(1,2);
         }
+        //获取当月总的天数
         if(currentmonth.equals("1") || currentmonth.equals("3") ||currentmonth.equals("5") || currentmonth.equals("7")
                 || currentmonth.equals("8") || currentmonth.equals("10") || currentmonth.equals("12")){
             monthofday=31;
@@ -99,7 +107,7 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
         }else{
             monthofday=28;
         }
-//        currentday=currentDate.substring(currentDate.indexOf("月")+1,currentDate.indexOf("日"));
+        currentday=currentDate.substring(currentDate.indexOf("月")+1,currentDate.indexOf("日"));
 
         //设置滑动选择改变月份事件
         calendarView.setOnMonthChangedListener(this);
@@ -122,25 +130,42 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
     @Override
     public void onMonthChanged(MaterialCalendarView materialCalendarView, CalendarDay calendarDay) {
         if(currentmonth.equals(calendarDay.getMonth()+1+"")){
-            Log.e("相同--->",calendarDay.getMonth()+"");
+
             calendarView.addDecorator(new EnableOneToTenDecorator());//移动到本月时解绑
+
         }else{
             calendarView.addDecorator(new PrimeDayDisableDecorator());
             if(Integer.parseInt(currentday)+14>monthofday && currentmonth.equals(calendarDay.getMonth()+"")){
                 calendarView.addDecorator(new EnableOverDecorator());//对超出本月的天数做解绑
             }
-            Log.e("不相同--->",calendarDay.getMonth()+"");
+
         }
 
     }
-
+    /**
+     * 监听日期改变函数
+     *
+     */
     @Override
     public void onDateSelected(@NonNull MaterialCalendarView widget, @Nullable CalendarDay date, boolean selected) {
-        Toast.makeText(this, getSelectedDatesString(), Toast.LENGTH_SHORT).show();
         selectDate=getSelectedDatesString();
         selectyear=selectDate.substring(0,4);
         selectmonth=selectDate.substring(selectDate.indexOf("年")+1,selectDate.indexOf("月"));
         selectday=selectDate.substring(selectDate.indexOf("月")+1,selectDate.indexOf("日"));
+        //收集每次点击的日期
+        if(dates.contains(date)){
+            dates.remove(date);
+            HashSet<CalendarDay> data=new HashSet<>();
+            data.add(date);
+            calendarView.removeDecorator(new EventDecorator(getResources().getColor(R.color.white),data));
+        }else{
+            dates.add(date);
+            calendarView.addDecorator(new EventDecorator(getResources().getColor(R.color.red),dates));
+        }
+        Log.e("dates----->",dates.toString());
+        //给选中的日期加上红点
+
+
 
     }
 
@@ -327,6 +352,30 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
                 false,
                 false, //PADDING
         };
+    }
+    /**
+     * Decorate several days with a dot
+     */
+    public class EventDecorator implements DayViewDecorator {
+
+        private int color;
+        private HashSet<CalendarDay> dates;
+
+        public EventDecorator(int color, Collection<CalendarDay> dates) {
+            this.color = color;
+            this.dates = new HashSet<>(dates);
+        }
+
+        @Override
+        public boolean shouldDecorate(CalendarDay day) {
+            return dates.contains(day) ;
+        }
+
+        @Override
+        public void decorate(DayViewFacade view) {
+            view.addSpan(new DotSpan(5, color));
+            Log.e("TAG====",color+"");
+        }
     }
 
 
