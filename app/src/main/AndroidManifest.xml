@@ -3,7 +3,10 @@
     package="com.gwtravel">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".view.app.ImageLoaderApplication"
@@ -43,8 +46,11 @@
         <activity android:name=".view.activity.SuggestionActivity" />
         <activity android:name=".view.activity.AboutActivity" />
         <activity android:name=".view.activity.VersionActivity" />
-        <activity android:name=".view.activity.GCTActivity"></activity>
-        <activity android:name=".view.activity.WebActivity"/>
+        <activity android:name=".view.activity.GCTActivity" />
+        <activity android:name=".view.activity.WebActivity" />
+        <activity android:name=".view.activity.PersonInfoActivity" />
+        <activity android:name=".view.activity.ClipImageActivity" />
+        <activity android:name=".view.activity.ShuttleBusOrderDetialActivity"></activity>
     </application>
 
 </manifest>

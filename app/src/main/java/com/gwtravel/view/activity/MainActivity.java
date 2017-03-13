@@ -103,7 +103,7 @@ public class MainActivity extends BaseActivity {
 
 
     @OnClick({R.id.iv_user, R.id.iv_message, R.id.linear_bills, R.id.linear_address, R.id.linear_help, R.id.linear_service,
-            R.id.linear_setting, R.id.linear_Chartered, R.id.linear_inspect_ticket})
+            R.id.linear_setting, R.id.linear_Chartered, R.id.linear_inspect_ticket,R.id.iv_avatar,R.id.tv_name,R.id.tv_phone})
 
     public void onClick(View view) {
         switch (view.getId()) {
@@ -137,6 +137,13 @@ public class MainActivity extends BaseActivity {
             case R.id.linear_inspect_ticket:
 
                 break;
+            case R.id.iv_avatar:
+            case R.id.tv_name:
+            case R.id.tv_phone:
+                startActivity(new Intent(MainActivity.this,PersonInfoActivity.class));
+                break;
+
+
         }
     }
 

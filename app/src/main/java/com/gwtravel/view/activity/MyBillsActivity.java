@@ -1,7 +1,9 @@
 package com.gwtravel.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -55,7 +57,12 @@ public class MyBillsActivity extends BaseActivity {
         orderAdapter = new OrderAdapter(orderEntities,MyBillsActivity.this);
         lv_order.setAdapter(orderAdapter);
 
-
+        lv_order.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(MyBillsActivity.this,ShuttleBusOrderDetialActivity.class));
+            }
+        });
 
     }
 
@@ -71,10 +78,15 @@ public class MyBillsActivity extends BaseActivity {
         orderAdapter = new OrderAdapter(orderEntities,MyBillsActivity.this);
         lv_order.setAdapter(orderAdapter);
 
+        lv_order.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(MyBillsActivity.this,CarBillDetailsActivity.class));
+            }
+        });
 
 
     }
-
 
     @OnClick({R.id.iv_back, R.id.tv_chartered,R.id.tv_shuttle_bus})
 
