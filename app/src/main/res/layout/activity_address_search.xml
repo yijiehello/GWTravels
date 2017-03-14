@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_address_search"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.gwtravel.view.activity.AddressSearchActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/yellowroundbg">
+        <TextView
+            android:id="@+id/cancel_tv"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:text="取消"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/white"/>
+        <AutoCompleteTextView
+            android:id="@+id/search_tv"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:completionThreshold="1"
+            android:padding="10dp"
+            android:textSize="14sp"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/cancel_tv"
+            android:background="@drawable/background_edit"
+            android:hint="请输入..."/>
+        <ImageView
+            android:id="@+id/clear_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/clearbutton"
+            android:layout_alignRight="@id/search_tv"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
