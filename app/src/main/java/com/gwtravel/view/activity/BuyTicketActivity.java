@@ -195,7 +195,7 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
                 ppw.showAtLocation(call_img, Gravity.CENTER,0,0);
                 break;
             case R.id.buy_ticket:
-
+                startActivity(new Intent(BuyTicketActivity.this,PayActivity.class));
                 break;
 
         }

@@ -1,6 +1,6 @@
 package com.gwtravel.view.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -48,7 +48,7 @@ public class MyETicketActivity extends BaseActivity {
 
                 break;
             case R.id.record_tv:
-
+                startActivity(new Intent(MyETicketActivity.this, MyBillsActivity.class));
                 break;
 
         }

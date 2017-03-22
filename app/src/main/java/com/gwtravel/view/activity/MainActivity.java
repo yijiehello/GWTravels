@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.gwtravel.R;
 import com.gwtravel.ShuttleBusDetialActivity;
@@ -74,6 +75,17 @@ public class MainActivity extends BaseActivity {
 
         final EditText et_start = (EditText) headerView.findViewById(R.id.et_start);
         final EditText et_end = (EditText) headerView.findViewById(R.id.et_end);
+        TextView tv_check = (TextView)headerView.findViewById(R.id.tv_check);
+
+        tv_check.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ShuttleBusDetialActivity.class));
+            }
+        });
+
+
+
         ImageView iv_exchange = (ImageView) headerView.findViewById(R.id.iv_exchange);
 
         iv_exchange.setOnClickListener(new View.OnClickListener() {
