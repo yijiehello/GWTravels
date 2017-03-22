@@ -84,8 +84,6 @@ public class MainActivity extends BaseActivity {
                 et_end.setText(temp1);
             }
         });
-
-
         et_start.setText("光谷广场");
         et_end.setText("金银湖公园");
 
@@ -100,8 +98,6 @@ public class MainActivity extends BaseActivity {
         });
 
     }
-
-
     @OnClick({R.id.iv_user, R.id.iv_message, R.id.linear_bills, R.id.linear_address, R.id.linear_help, R.id.linear_service,
             R.id.linear_setting, R.id.linear_Chartered, R.id.linear_inspect_ticket,R.id.iv_avatar,R.id.tv_name,R.id.tv_phone})
 
@@ -135,7 +131,7 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(MainActivity.this, BusinessActivity.class));
                 break;
             case R.id.linear_inspect_ticket:
-
+                startActivity(new Intent(MainActivity.this,MyETicketActivity.class));
                 break;
             case R.id.iv_avatar:
             case R.id.tv_name:

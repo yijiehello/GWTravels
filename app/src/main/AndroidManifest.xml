@@ -35,7 +35,7 @@
         <activity android:name=".view.activity.HelpActivity" />
         <activity android:name=".view.activity.SettingActivity" />
         <activity android:name=".view.activity.AddressActivity" />
-        <activity android:name=".view.activity.AddressSearchActivity"/>
+        <activity android:name=".view.activity.AddressSearchActivity" />
         <activity android:name=".view.activity.SearchActivity" />
         <activity android:name=".view.activity.SubmitBillActivity" />
         <activity android:name=".view.activity.CarBillDetailsActivity" />
@@ -51,7 +51,8 @@
         <activity android:name=".view.activity.WebActivity" />
         <activity android:name=".view.activity.PersonInfoActivity" />
         <activity android:name=".view.activity.ClipImageActivity" />
-        <activity android:name=".view.activity.ShuttleBusOrderDetialActivity"></activity>
+        <activity android:name=".view.activity.ShuttleBusOrderDetialActivity" />
+        <activity android:name=".view.activity.MyETicketActivity"></activity>
     </application>
 
 </manifest>

@@ -2,6 +2,8 @@ package com.gwtravel.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,6 +35,7 @@ public class LoginActivity extends BaseActivity {
     EditText phone_et;
     @BindView(R.id.password_et)
     EditText password_et;
+    private boolean see = false;
 
 
     @Override
@@ -48,7 +51,7 @@ public class LoginActivity extends BaseActivity {
     private void init() {
 
     }
-    @OnClick({R.id.login_tv, R.id.back_btn, R.id.forget_tv, R.id.phone_et, R.id.password_et})
+    @OnClick({R.id.login_tv, R.id.back_btn, R.id.forget_tv, R.id.phone_et, R.id.password_et,R.id.eye_img})
 
     public void onClick(View view){
         switch (view.getId()){
@@ -76,6 +79,19 @@ public class LoginActivity extends BaseActivity {
                     login_tv.setBackground(getResources().getDrawable(R.drawable.background_yellow_text));
                 }else{
                     login_tv.setBackground(getResources().getDrawable(R.drawable.background_grey_text));
+                }
+                break;
+            case R.id.eye_img:
+                if (see) {
+                    eye_img.setImageResource(R.mipmap.eyes);
+                    see = false;
+                    /* 设定EditText的内容为隐藏的 */
+                    password_et.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                } else {
+                    eye_img.setImageResource(R.mipmap.openeye);
+                    see = true;
+                    /* 设定EditText的内容为可见的 */
+                    password_et.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 }
                 break;
 

@@ -27,11 +27,12 @@
             android:layout_marginRight="20dp"/>
         <TextView
             android:id="@+id/num_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:padding="10dp"
             android:text="0"
             android:textSize="14sp"
+            android:gravity="center"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/add_img"/>
         <ImageView
@@ -42,6 +43,7 @@
             android:src="@mipmap/subtract"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/num_tv"
+
             />
     </RelativeLayout>
     <View

@@ -7,7 +7,7 @@
     <LinearLayout
         android:id="@+id/bottom_re"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="vertical"
         android:gravity="center_horizontal"
@@ -17,6 +17,7 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:layout_width="match_parent"
+            android:datePickerMode="spinner"
             android:calendarViewShown="false">
 
         </DatePicker>
@@ -24,6 +25,7 @@
             android:id="@+id/timepicker"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:timePickerMode="spinner"
             android:layout_width="match_parent">
 
         </TimePicker>

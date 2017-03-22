@@ -156,17 +156,17 @@ public class BuyTicketActivity extends BaseActivity implements OnMonthChangedLis
             dates.remove(date);
             HashSet<CalendarDay> data=new HashSet<>();
             data.add(date);
-            eventDecorator.setColor(R.color.white);
-            eventDecorator.setDates(data);
-            calendarView.removeDecorator(eventDecorator);
-//            calendarView.removeDecorator(new EventDecorator(getResources().getColor(R.color.white),data));
+//            eventDecorator.setColor(R.color.white);
+//            eventDecorator.setDates(data);
+//            calendarView.removeDecorator(eventDecorator);
+            calendarView.removeDecorator(new EventDecorator(getResources().getColor(R.color.white),data));
+            money_tv.setText(5*dates.size()+".00");
         }else{
             dates.add(date);
             eventDecorator.setColor(R.color.red);
             eventDecorator.setDates(dates);
             calendarView.addDecorator(eventDecorator);
-
-
+            money_tv.setText(5*dates.size()+".00");
 //            calendarView.addDecorator(new EventDecorator(getResources().getColor(R.color.red),dates));
         }
         Log.e("dates----->",dates.toString());

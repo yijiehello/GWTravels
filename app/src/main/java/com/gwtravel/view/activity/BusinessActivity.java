@@ -111,6 +111,7 @@ public class BusinessActivity extends BaseActivity {
         ButterKnife.bind(this);
         start_et.setFocusable(false);
         end_et.setFocusable(false);
+        car_et.setFocusable(false);
         select();
         init();
     }
@@ -125,7 +126,7 @@ public class BusinessActivity extends BaseActivity {
     }
     @OnClick({R.id.back_btn, R.id.add_img, R.id.monthone_img, R.id.monthtwo_img,
             R.id.time_tv, R.id.cartype_tv, R.id.call_tv, R.id.put_tv, R.id.addtwo_img,
-            R.id.addthree_img, R.id.start_et, R.id.end_et})
+            R.id.addthree_img, R.id.start_et, R.id.end_et, R.id.car_et})
     public void onClick(View view){
         switch (view.getId()){
             case R.id.back_btn:
@@ -195,6 +196,12 @@ public class BusinessActivity extends BaseActivity {
                 end_et.requestFocus();
                 end_et.requestFocusFromTouch();
                 break;
+            case R.id.car_et:
+                car_et.setFocusable(true);
+                car_et.setFocusableInTouchMode(true);
+                car_et.requestFocus();
+                car_et.requestFocusFromTouch();
+                break;
 
         }
     }
@@ -227,13 +234,13 @@ public class BusinessActivity extends BaseActivity {
         //为ppw设置可获取焦点
         ppw.setFocusable(true);
         // 设置点击背景消失
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.popup_title_bg);
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                ppw.dismiss();
-            }
-        });
+//        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.popup_title_bg);
+//        layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                ppw.dismiss();
+//            }
+//        });
         //日期和时间
         DatePicker datepicker= (DatePicker) view.findViewById(R.id.datepicker);
         TimePicker timepicker= (TimePicker) view.findViewById(R.id.timepicker);
@@ -277,7 +284,6 @@ public class BusinessActivity extends BaseActivity {
         affirm_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 ppw.dismiss();
             }
         });
@@ -315,13 +321,13 @@ public class BusinessActivity extends BaseActivity {
         //为ppw设置可获取焦点
         ppw.setFocusable(true);
         // 设置点击背景消失
-        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.popup_title_bg);
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View arg0) {
-                ppw.dismiss();
-            }
-        });
+//        RelativeLayout layout = (RelativeLayout) view.findViewById(R.id.popup_title_bg);
+//        layout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View arg0) {
+//                ppw.dismiss();
+//            }
+//        });
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

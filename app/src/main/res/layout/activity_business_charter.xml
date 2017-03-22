@@ -383,6 +383,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:padding="5dp"
                         android:layout_toLeftOf="@id/months_tv"
                         android:src="@mipmap/greyright"
                         />
@@ -401,6 +402,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
+                        android:padding="5dp"
                         android:layout_toLeftOf="@id/single_tv"
                         android:src="@mipmap/mingreenright"
                         />
